@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-  [SerializeField] TerrainGenerator terrainGenerator;
+    [SerializeField] private TerrainGenerator terrainGenerator;
 
     private Animator animator;
     private bool isHopping;
@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
         animator.SetTrigger("Hop");
         isHopping = true;
         transform.position = (transform.position + difference);
+        terrainGenerator.TerrainsSpawner(false, transform.position);
     }
 
     public void FinishMove()
