@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class TerrainGenerator : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> areas = new List<GameObject>();
+    [SerializeField] private List<TerrainData> terrainDatas = new List<TerrainData>();
     [SerializeField] private int maxTerrainCount;
+    [SerializeField] private Transform terrainHolder;
 
     private Vector3 currentPosition = new Vector3(0, 0, 0);
     private List<GameObject> currentTerrains = new List<GameObject>();
@@ -15,7 +16,7 @@ public class TerrainGenerator : MonoBehaviour
     {
         for (int i = 0; i < maxTerrainCount; i++)
         {
-            AreaSpawner();
+            TerrainsSpawner(true);
         }
         
     }
@@ -24,19 +25,33 @@ public class TerrainGenerator : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            AreaSpawner(); 
+            TerrainsSpawner(false); 
         }
+        maxTerrainCount += currentTerrains.Count;
     }
 
-    private void AreaSpawner()
+    private void TerrainsSpawner(bool isStart)
     {
-        GameObject terrain = Instantiate(areas[Random.Range(0, areas.Count)], currentPosition, Quaternion.identity);
-        currentTerrains.Add(terrain);
-        if(currentTerrains.Count > maxTerrainCount)
+        int whichTerrain = Random.Range(0, terrainDatas.Count);
+        int terraininSuccession = Random.Range(1, terrainDatas[whichTerrain].maxInSuccesion);
+        for (int i = 0; i < terraininSuccession; i++)
         {
-            Destroy(currentTerrains[0]);
-            currentTerrains.RemoveAt(0);
+            GameObject terrain = Instantiate(terrainDatas[whichTerrain].terrain, currentPosition, Quaternion.identity);
+            terrain.transform.SetParent(terrainHolder);
+            currentTerrains.Add(terrain);
+            if (!isStart)
+            {
+                if (currentTerrains.Count > maxTerrainCount)
+                {
+                    Destroy(currentTerrains[0]);
+                    currentTerrains.RemoveAt(0);
+                }
+            }
+            else
+            {
+
+            }
+            currentPosition.x++;
         }
-        currentPosition.x++;
     }
 }

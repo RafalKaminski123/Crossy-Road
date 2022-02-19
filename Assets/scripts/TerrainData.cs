@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 [CreateAssetMenu(fileName = "Terrain Data", menuName = "Terrain Data")]
-public class TerrainData : MonoBehaviour
+public class TerrainData : ScriptableObject
 {
     public GameObject terrain;
     public int maxInSuccesion;
