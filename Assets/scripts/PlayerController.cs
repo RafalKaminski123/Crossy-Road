@@ -20,25 +20,19 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetTrigger("Hop");
             isHopping = true;
-            float zDifference = 0;
-            if(transform.position.x % 1 != 0)
-            {
-                zDifference = Mathf.Round(transform.position.z) - transform.position.z;
-                
-            }
-            MoveCharacter(new Vector3(1, 0, 0));
+            MoveCharacter(new Vector3(0, 0, 1));
         }
         else if (Input.GetKeyDown(KeyCode.A) && !isHopping)
         {
-            MoveCharacter(new Vector3(0, 1, 0));
+            MoveCharacter(new Vector3(-1, 0, 0));
         }
         else if (Input.GetKeyDown(KeyCode.D) && !isHopping)
         {
-            MoveCharacter(new Vector3(0, -1, 0));
+            MoveCharacter(new Vector3(1, 0, 0));
         }
         else if (Input.GetKeyDown(KeyCode.S) && !isHopping)
         {
-            MoveCharacter(new Vector3(-1, 0, 0));
+            MoveCharacter(new Vector3(0, 0, -1));
         }
 
     }

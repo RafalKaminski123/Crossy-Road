@@ -19,15 +19,14 @@ public class TerrainGenerator : MonoBehaviour
         {
             TerrainsSpawner(true, new Vector3(0,0,0));
         }
-        maxTerrainCount = currentTerrains.Count;
     }
  
     public void TerrainsSpawner(bool isStart, Vector3 playerPos ) //Method for spawing components
     {
-        if((currentPosition.x - playerPos.x < mindistanceFromPlayer) || (isStart))
+        if((currentPosition.z - playerPos.z < mindistanceFromPlayer) || (isStart))
         {
-            int whichTerrain = Random.Range(0, terrainDatas.Count);
-            int terraininSuccession = Random.Range(1, terrainDatas[whichTerrain].maxInSuccesion);
+            int whichTerrain = Random.Range(1, terrainDatas.Count);
+            int terraininSuccession = Random.Range(0, terrainDatas[whichTerrain].maxInSuccesion);
             for (int i = 0; i < terraininSuccession; i++)
             {
                 GameObject terrain = Instantiate(terrainDatas[whichTerrain].terrain, currentPosition, Quaternion.identity, terrainHolder);
@@ -40,7 +39,7 @@ public class TerrainGenerator : MonoBehaviour
                         currentTerrains.RemoveAt(0);
                     }
                 }
-                currentPosition.x++;
+                currentPosition.z++;
             }
         }
    
