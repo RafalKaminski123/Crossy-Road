@@ -25,8 +25,8 @@ public class TerrainGenerator : MonoBehaviour
     {
         if((currentPosition.z - playerPos.z < mindistanceFromPlayer) || (isStart))
         {
-            int whichTerrain = Random.Range(1, terrainDatas.Count);
-            int terraininSuccession = Random.Range(0, terrainDatas[whichTerrain].maxInSuccesion);
+            int whichTerrain = Random.Range(0, terrainDatas.Count);
+            int terraininSuccession = Random.Range(1, terrainDatas[whichTerrain].maxInSuccesion);
             for (int i = 0; i < terraininSuccession; i++)
             {
                 GameObject terrain = Instantiate(terrainDatas[whichTerrain].terrain, currentPosition, Quaternion.identity, terrainHolder);
