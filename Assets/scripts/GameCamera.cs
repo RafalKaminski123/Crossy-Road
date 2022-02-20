@@ -7,10 +7,18 @@ public class GameCamera : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private Vector3 offset;
     [SerializeField] private float smoothness;
- 
 
-    private void Upadate()
+    private void Start()
     {
-        transform.position = Vector3.Lerp(transform.position, player.transform.position + offset, smoothness);
+        transform.position = player.transform.position + offset;
+        transform.rotation = Quaternion.LookRotation(player.transform.position - transform.position);
+
     }
+
+    private void Update()
+    {
+        transform.position = Vector3.Lerp(transform.position, player.transform.position + offset, smoothness * Time.deltaTime);
+    }
+
+   
 }
