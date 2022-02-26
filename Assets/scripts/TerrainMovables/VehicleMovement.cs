@@ -7,6 +7,7 @@ public class VehicleMovement : MonoBehaviour
     [SerializeField] private float speed;
     private void Update()
     {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        transform.Translate(Vector3.left * speed * Time.deltaTime );
+       
     }
 }
