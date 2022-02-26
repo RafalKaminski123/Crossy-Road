@@ -10,10 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d35f3cf85554c84aa244f7205d82c17, type: 3}
-  m_Name: Grass
+  m_Name: RailRoad
   m_EditorClassIdentifier: 
   possibleTerrain:
-  - {fileID: 5749448911603932534, guid: 96a3c8c9d8273c44599804f338864612, type: 3}
-  - {fileID: 2950927013709209653, guid: 0df54d756067cbb40ae1005956fd2af4, type: 3}
-  - {fileID: 1810273770147186347, guid: b7095aceaa01486458b26c5285a42255, type: 3}
-  maxInSuccesion: 2
+  - {fileID: 1435910351406502984, guid: c94f65246d99a4e469346ef9ec22a31e, type: 3}
+  maxInSuccesion: 0

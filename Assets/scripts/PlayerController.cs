@@ -1,21 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private TerrainGenerator terrainGenerator;
+    [SerializeField] private TextMeshProUGUI scoreText;
 
-    private Animator animator;
-    private bool isHopping;
+    protected Animator animator;
+    protected bool isHopping;
+    private int score;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
     }
 
+    private void FixedUpdate()
+    {
+        score++;
+    }
+
     private void Update()
     {
+        scoreText.text = "Score:" + score;
         if(Input.GetKeyDown(KeyCode.W) && !isHopping)
         {
             animator.SetTrigger("Hop");
@@ -37,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void MoveCharacter(Vector3 difference)
+    protected void MoveCharacter(Vector3 difference)
     {
         animator.SetTrigger("Hop");
         isHopping = true;

@@ -17,7 +17,7 @@ public class TerrainGenerator : MonoBehaviour
     {
         for (int i = 0; i < maxTerrainCount; i++)
         {
-            TerrainsSpawner(true, new Vector3(0,0,0));
+            TerrainsSpawner(true, new Vector3(0, 0, 0));
         }
     }
  
