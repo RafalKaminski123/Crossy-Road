@@ -18,9 +18,13 @@ public class GameCamera : MonoBehaviour
 
     private void Update()
     {
-        float newZ = Mathf.Lerp(transform.position.z, (player.transform.position + offset).z, smoothness * Time.deltaTime);
-       //transform.position =  Vector3.Lerp(transform.position, player.transform.position + offset, smoothness * Time.deltaTime);
-        transform.position =  new Vector3(offset.x,offset.y, newZ );
+       if(player != null)
+        {
+            float newZ = Mathf.Lerp(transform.position.z, (player.transform.position + offset).z, smoothness * Time.deltaTime);
+            //transform.position =  Vector3.Lerp(transform.position, player.transform.position + offset, smoothness * Time.deltaTime);
+            transform.position = new Vector3(offset.x, offset.y, newZ);
+        }
+        
     }
 
    

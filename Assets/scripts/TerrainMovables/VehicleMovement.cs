@@ -8,6 +8,13 @@ public class VehicleMovement : MonoBehaviour
     private void Update()
     {
         transform.Translate(Vector3.left * speed * Time.deltaTime );
-       
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.GetComponent<PlayerController>() != null)
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }

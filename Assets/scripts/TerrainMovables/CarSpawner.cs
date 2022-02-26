@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class CarSpawner : MonoBehaviour
 {
-  
-    [SerializeField] private GameObject vehicles;
+
+    // [SerializeField] private List<GameObject> vehicles = new List<GameObject>();
+    [SerializeField] private ScriptableObject vehicles;
     [SerializeField] private Transform spawnPos;
     [SerializeField] private float maxSeperationTime;
     [SerializeField] private float minSeperationTime;
@@ -17,6 +18,7 @@ public class CarSpawner : MonoBehaviour
     }
     private IEnumerator SpawnVehicle()
     {
+        //int whichCars = Random.Range(0, vehicles.Count);
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(minSeperationTime, maxSeperationTime));

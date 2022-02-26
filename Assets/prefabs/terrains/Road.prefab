@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vehicles: {fileID: 0}
-  spawnPos: {fileID: 0}
+  spawnPos: {fileID: 4244822900293766765}
   maxSeperationTime: 0
   minSeperationTime: 0
 --- !u!1001 &567581990541225960
