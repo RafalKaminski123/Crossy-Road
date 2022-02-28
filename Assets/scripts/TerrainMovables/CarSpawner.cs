@@ -6,7 +6,7 @@ public class CarSpawner : MonoBehaviour
 {
 
     // [SerializeField] private List<GameObject> vehicles = new List<GameObject>();
-    [SerializeField] private ScriptableObject vehicles;
+    [SerializeField] private GameObject vehicles;
     [SerializeField] private Transform spawnPos;
     [SerializeField] private float maxSeperationTime;
     [SerializeField] private float minSeperationTime;
